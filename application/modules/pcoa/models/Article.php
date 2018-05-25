@@ -5,10 +5,10 @@
  * @date    2018-05-23 11:58:25
  * @version $Id$
  */
-
+//namespace modules\pcoa\model;
 use \Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Welcome_model extends Eloquent
+class Article extends Eloquent
 {
     protected $table = "articles";
 
@@ -17,9 +17,9 @@ class Welcome_model extends Eloquent
         parent::__construct();
     }
 
-    public function get_welcome_info()
+    public function get_index_info()
     {
-        $article = Article::first();
+        $article = Article::find(2);
         return $article;
     }
 }

@@ -4,14 +4,16 @@
  */
 class CI_service
 {
-	function __construct()
-	{
-		 log_message('debug', 'service class init');
-	}
-	public function __get($key)
-	{
-		$CI = & get_instance();
-		return $CI->$key;
-	}
+
+    function __construct()
+    {
+    }
+
+    function __get($name)
+    {
+        // TODO: Implement __get() method.
+        $CI = &get_instance();
+        return $CI->$name;
+    }
 }
 

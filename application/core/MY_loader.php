@@ -5,8 +5,10 @@
  * @date    2018-05-23 11:18:03
  * @version $Id$
  */
+/* load the HMVC_Router class */
+require APPPATH . 'third_party/MX/Loader.php';
 
-class MY_loader extends CI_Loader
+class MY_loader extends MX_Loader
 {
 
     protected $_ci_services = array();
@@ -19,7 +21,7 @@ class MY_loader extends CI_Loader
     }
 
 
-    public function service($service = '', $params = null, $object_name = null)
+    public function service($service = '', $modules, $params = null, $object_name = null)
     {
         if (is_array($service)) {
             foreach ($service as $key => $class) {
@@ -39,8 +41,7 @@ class MY_loader extends CI_Loader
             $service = substr($service, $last_slash + 1);
         }
         foreach ($this->_ci_service_paths as $path) {
-            $filePath = $path . 'service/' . $subdir . $service . '.php';
-            // echo $filePath;
+            $filePath = $path .'modules/'.$modules. '/services/' . $subdir . $service . '.php';
             if (!file_exists($filePath)) {
                 continue;
             }

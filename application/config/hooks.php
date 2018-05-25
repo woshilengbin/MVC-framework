@@ -30,10 +30,10 @@ $hook['pre_system'][] = array(
 );
 
 // 是否开启模板引擎
-// $hook['display_override'] = function()
-// {
-//     return true;
-// };
+ $hook['display_override'] = function()
+ {
+     return true;
+ };
 
 
 
