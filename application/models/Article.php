@@ -5,7 +5,6 @@
  * @date    2018-05-23 11:58:25
  * @version $Id$
  */
-//namespace modules\pcoa\model;
 use \Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Article extends Eloquent
@@ -17,9 +16,9 @@ class Article extends Eloquent
         parent::__construct();
     }
 
-    public function get_index_info()
+    public function get_user_info_by_id($id)
     {
-        $article = Article::find(2);
+        $article = Article::find($id);
         return $article;
     }
 }

@@ -5,10 +5,9 @@
  * @date    2018-05-23 11:18:03
  * @version $Id$
  */
-/* load the HMVC_Router class */
-require APPPATH . 'third_party/MX/Loader.php';
 
-class MY_loader extends MX_Loader
+
+class MY_Loader extends CI_Loader
 {
 
     protected $_ci_services = array();
@@ -21,40 +20,52 @@ class MY_loader extends MX_Loader
     }
 
 
-    public function service($service = '', $modules, $params = null, $object_name = null)
+    public function service($service = '', $params = NULL, $object_name = NULL)
     {
-        if (is_array($service)) {
-            foreach ($service as $key => $class) {
+        if(is_array($service))
+        {
+            foreach($service as $class)
+            {
                 $this->service($class, $params);
             }
             return;
         }
-        if ($service == '' or isset($this->_ci_services[$service])) {
-            return false;
+        if($service == '' or isset($this->_ci_services[$service])) {
+            return FALSE;
         }
-        if (!is_null($params) && !is_array($params)) {
-            $params = null;
+        if(! is_null($params) && ! is_array($params)) {
+            $params = NULL;
         }
         $subdir = '';
-        if (($last_slash = strrpos($service, '/')) !== false) {
+        // Is the service in a sub-folder? If so, parse out the filename and path.
+        if (($last_slash = strrpos($service, '/')) !== FALSE)
+        {
+            // The path is in front of the last slash
             $subdir = substr($service, 0, $last_slash + 1);
+            // And the service name behind it
             $service = substr($service, $last_slash + 1);
         }
-        foreach ($this->_ci_service_paths as $path) {
-            $filePath = $path .'modules/'.$modules. '/services/' . $subdir . $service . '.php';
-            if (!file_exists($filePath)) {
+        foreach($this->_ci_service_paths as $path)
+        {
+            $filepath = $path .'services/'.$subdir.$service.'.php';
+            if ( ! file_exists($filepath))
+            {
                 continue;
             }
-            include_once($filePath);
+            include_once($filepath);
             $service = strtolower($service);
-            if (empty($object_name)) {
+            if (empty($object_name))
+            {
                 $object_name = $service;
             }
             $service = ucfirst($service);
             $CI = &get_instance();
-            if ($params !== null) {
+            if($params !== NULL)
+            {
                 $CI->$object_name = new $service($params);
-            } else {
+            }
+            else
+            {
                 $CI->$object_name = new $service();
             }
             $this->_ci_services[] = $object_name;
