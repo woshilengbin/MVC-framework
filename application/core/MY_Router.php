@@ -2,6 +2,6 @@
 (defined('BASEPATH')) or exit('No direct script access allowed');
 
 /* load the HMVC_Router class */
-
-class MY_Router extends CI_Router {
+require APPPATH."third_party/MX/Router.php";
+class MY_Router extends MX_Router {
 }

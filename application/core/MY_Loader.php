@@ -5,9 +5,9 @@
  * @date    2018-05-23 11:18:03
  * @version $Id$
  */
+require APPPATH."third_party/MX/Loader.php";
 
-
-class MY_Loader extends CI_Loader
+class MY_Loader extends MX_Loader
 {
 
     protected $_ci_services = array();
