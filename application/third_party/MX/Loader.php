@@ -251,6 +251,15 @@ class MX_Loader extends CI_Loader
 		CI::$APP->$_alias = Modules::load(array($module => $params));
 		return $this;
 	}
+	/** Load a module service**/
+	public function service($service, $params = NULL)
+	{
+		if (is_array($module)) return $this->modules($module);
+
+		$_alias = strtolower(basename($module));
+		CI::$APP->$_alias = Modules::load(array($module => $params));
+		return $this;
+	}
 
 	/** Load an array of controllers **/
 	public function modules($modules)

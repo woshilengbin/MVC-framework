@@ -13,11 +13,12 @@ class Welcome_service extends MY_Service
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Article.bak');
+        $this->load->model('article');
     }
 
     public function index($id)
     {
+//        log_message('debug',$id.'11111111111111111111111111111111111111');
         $user = $this->article->get_user_info_by_id($id);
         return $user;
     }

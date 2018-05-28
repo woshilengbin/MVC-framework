@@ -14,8 +14,8 @@ class Welcome extends MX_Controller
     {
 
         parent::__construct();
-        $this->load->service('welcome_service');
-        $this->load->model('article');
+        $this->load->service('welcome', 'welcome_service');
+//        $this->load->model('article');
     }
 
     public function index()
@@ -29,7 +29,9 @@ class Welcome extends MX_Controller
         $user = $this->article->get_user_info_by_id(1);
         return $user;
     }
-    public function runTest(){
+
+    public function runTest()
+    {
         echo '<h1>this is a run test!</h1>';
         $user = $this->article->get_user_info_by_id(1);
         $this->twig->display('welcome/views/welcome_message.html');
