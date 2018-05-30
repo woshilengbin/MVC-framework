@@ -23,7 +23,7 @@ class Article extends Eloquent
 
     function getAll($per_page, $pageSize)
     {
-        if (empty($per_page)) $per_page =1;
+        if (empty($per_page)) $per_page = 1;
         $data['data'] = Article::orderby('id')->offset(($per_page - 1) * $pageSize)->limit($pageSize)->get();
         $data['count'] = Article::count();
         return $data;

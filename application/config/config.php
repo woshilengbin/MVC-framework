@@ -378,9 +378,11 @@ $config['encryption_key'] = '';
 |
 */
 $config['sess_driver'] = 'files';
+//$config['sess_driver'] = 'redis';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = FCPATH.'data/sessions';
+//$config['sess_save_path'] = 'tcp://192.168.203.227:4602';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

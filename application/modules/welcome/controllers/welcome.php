@@ -112,4 +112,11 @@ class Welcome extends Base
         $user = $this->article->get_user_info_by_id(1);
         $this->twig->display('welcome/views/welcome_message.html');
     }
+
+    function logout()
+    {
+
+        $this->load->module('user/user');
+        $list = $this->user->logout();
+    }
 }

@@ -7,6 +7,7 @@
  * Time: 11:31
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class user extends Base
 {
 
@@ -28,11 +29,20 @@ class user extends Base
             $adm["admin_key"] = $_GET['admin_key'];
             $this->session->set_userdata('myadm', $adm);
             $this->session->set_userdata('username', $user["username"]);
-            $this->getPermit($user["username"], $user["cname"]); //将权限设置为session
-            redirect('c=common&m=welcome');
+//            $this->getPermit($user["username"], $user["cname"]); //将权限设置为session
+            redirect('welcome/index');
         } else {
             $sso_url = $this->simplesso->getLoginUrl();
             redirect($sso_url);
         }
+    }
+
+    function logout()
+    {
+        $this->session->unset_userdata('myadm');
+        $this->session->unset_userdata('sideBarList');
+        $this->session->unset_userdata('permits_all');
+        $this->load->library('Simplesso');
+        $this->simplesso->Logout();
     }
 }

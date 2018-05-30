@@ -13,4 +13,4 @@ $config['page_query_string'] = TRUE;
 $config['full_tag_open'] = '<p>';
 $config['full_tag_close'] = '</p>';
 $config['first_link'] = 'First';
-$config['per_page'] = 4;
+$config['per_page'] = 10;
