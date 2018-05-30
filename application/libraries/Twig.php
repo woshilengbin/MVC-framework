@@ -9,7 +9,7 @@ class Twig extends Twig_Environment {
     {
         $config_default = array(
             'cache_dir' => false,
-            'debug' => false,
+            'debug' => true,
             'auto_reload' => true,
             'extension' => '.twig',
         );

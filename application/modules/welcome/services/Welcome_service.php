@@ -16,9 +16,38 @@ class Welcome_service extends MY_Service
         $this->load->model('article');
     }
 
+    function getAll($per_page,$pageSize)
+    {
+        $all = $this->article->getAll($per_page,$pageSize);
+        return $all;
+    }
+
+    function get_article_info_by_id($id)
+    {
+        $article = $this->article->getById($id);
+        return $article;
+    }
+
+    public function addNew($data)
+    {
+        $isAdd = $this->article->addNew($data);
+        return $isAdd;
+    }
+
+    function updateArt($data)
+    {
+        $isUpsate = $this->article->updateArt($data);
+        return $isUpsate;
+    }
+
+    function deleteArt($id)
+    {
+        $isDel = $this->article->deleteArt($id);
+        return $isDel;
+    }
+
     public function index($id)
     {
-//        log_message('debug',$id.'11111111111111111111111111111111111111');
         $user = $this->article->get_user_info_by_id($id);
         return $user;
     }

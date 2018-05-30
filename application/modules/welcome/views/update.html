@@ -1,0 +1,12 @@
+{{ include('common/views/top.html') }}
+{{ data.title }}
+<div id="container">
+    <form action="update" method="post">
+        <label for="name">Title</label>
+        <input type="input" name="name" id="name" value="{{ article.article }}"/><br />
+        <input type="text" name="id" id="id" value="{{ article.id }}"/><br />
+        <input type="submit" name="submit" value="Create news item" />
+    </form>
+
+</div>
+{{ include('common/views/bottom.html') }}
