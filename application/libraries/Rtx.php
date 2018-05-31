@@ -63,6 +63,7 @@ class Rtx
             }
         }
         $result = unserialize($result);
+
         //$result['errno'] 服务端错误...1参数不够2不存在该应用3IP验证失败4时间相差1小时5sig验证失败
 
         return $errno ? null : $result;
@@ -189,6 +190,7 @@ class Rtx
         }
 
         $result = $this->call_method((array) $param, $this->resturl);
+        var_dump($result);
         $count  = 0;
         while (($result === null) && ($count < count($this->proxyUrl))) {
             //服务器错误切换proxy

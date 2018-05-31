@@ -109,14 +109,13 @@ class Welcome extends Base
     public function runTest()
     {
         echo '<h1>this is a run test!</h1>';
-        $user = $this->article->get_user_info_by_id(1);
-        $this->twig->display('welcome/views/welcome_message.html');
+        $this->twig->display('welcome/views/add.html');
     }
 
     function logout()
     {
 
         $this->load->module('user/user');
-        $list = $this->user->logout();
+        $this->user->logout();
     }
 }

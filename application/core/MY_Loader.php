@@ -44,8 +44,6 @@ class MY_Loader extends MX_Loader
         }
         foreach ($this->_ci_service_paths as $path) {
             $filepath = $path . 'modules/' . $module . '/services/' . $subdir . $service . '.php';
-//            echo $filepath;
-//            die();
             if (!file_exists($filepath)) {
                 continue;
             }

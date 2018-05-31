@@ -95,7 +95,7 @@ return array(
 	'txt'	=>	'text/plain',
 	'text'	=>	'text/plain',
 	'log'	=>	array('text/plain', 'text/x-log'),
-	'rtx'	=>	'text/richtext',
+	'message' =>	'text/richtext',
 	'rtf'	=>	'text/rtf',
 	'xml'	=>	array('application/xml', 'text/xml', 'text/plain'),
 	'xsl'	=>	array('application/xml', 'text/xsl', 'text/xml'),
